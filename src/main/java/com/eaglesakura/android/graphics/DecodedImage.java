@@ -1,8 +1,8 @@
 package com.eaglesakura.android.graphics;
 
-import android.graphics.Bitmap;
-
 import com.eaglesakura.util.LogUtil;
+
+import android.graphics.Bitmap;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -30,8 +30,6 @@ public class DecodedImage {
 
     /**
      * 画像幅を取得する
-     *
-     * @return
      */
     public int getWidth() {
         return width;
@@ -39,8 +37,6 @@ public class DecodedImage {
 
     /**
      * 画像高を取得する
-     *
-     * @return
      */
     public int getHeight() {
         return height;
@@ -48,8 +44,6 @@ public class DecodedImage {
 
     /**
      * ピクセルバッファを取得する
-     *
-     * @return
      */
     public Buffer getPixels() {
         return pixels;
@@ -58,9 +52,6 @@ public class DecodedImage {
     /**
      * 画像からデコードを行う
      * 画像は自動ではrecycleされないため、呼び出し元で行うこと。
-     *
-     * @param image
-     * @return
      */
     public static DecodedImage decodeFromBitmap(Bitmap image, boolean recycle) {
         if (image == null) {

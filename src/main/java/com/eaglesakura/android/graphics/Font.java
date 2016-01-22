@@ -1,13 +1,13 @@
 package com.eaglesakura.android.graphics;
 
+import com.eaglesakura.math.Vector2;
+import com.eaglesakura.util.StringUtil;
+import com.eaglesakura.util.Util;
+
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-
-import com.eaglesakura.math.Vector2;
-import com.eaglesakura.util.StringUtil;
-import com.eaglesakura.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,8 +48,6 @@ public class Font {
 
     /**
      * 描画色を指定する
-     *
-     * @param argb
      */
     public void setColorARGB(int argb) {
         paint.setColor(argb);
@@ -62,7 +60,6 @@ public class Font {
      * @param fontHeightPixel 文字1行の高さ
      * @param lineWidth       1行の幅
      * @param maxLines        最大行数
-     * @return
      */
     public List<String> calcTextLinesFromRect(String text, String fooderText, int fontHeightPixel, int lineWidth, int maxLines) {
         if (StringUtil.isEmpty(text)) {
@@ -114,7 +111,6 @@ public class Font {
      * @param lineWidth       1行の幅
      * @param maxLines        最大行数
      * @param yMarginPixel    改行ごとのマージンピクセル数
-     * @param canvas
      */
     public void drawString(String text, String fooderText, int x, final int y, int fontHeightPixel, int lineWidth, int maxLines, int yMarginPixel, Canvas canvas) {
         if (StringUtil.isEmpty(text)) {
@@ -186,7 +182,6 @@ public class Font {
      *
      * @param text        レンダリング対象の文字列
      * @param heightPixel 計算する高さピクセル数
-     * @return
      */
     public synchronized int calcFontSize(final String text, int heightPixel) {
         Vector2 size = new Vector2();
@@ -208,7 +203,6 @@ public class Font {
      * @param heightPixel 1行の高さ
      * @param widthPixel  幅のピクセル数
      * @param heightPixel 高さピクセル数
-     * @return
      */
     public String calcTextInRect(final String baseText, final String fooderText, boolean forceFooder, int widthPixel,
                                  int heightPixel) {
@@ -229,10 +223,8 @@ public class Font {
      * <br>
      * height/widthの値は変更せず、オーバーする場合は折り返しを行う
      *
-     * @param baseText
      * @param widthPixel  1行の幅
      * @param heightPixel 1行の高さ
-     * @return
      */
     public String calcTextInRectNewLine(final String baseText, int widthPixel, int heightPixel) {
         final int fontSize = calcFontSize(baseText, heightPixel);

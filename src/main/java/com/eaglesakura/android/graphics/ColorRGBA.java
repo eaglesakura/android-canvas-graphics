@@ -130,9 +130,6 @@ public class ColorRGBA {
 
     /**
      * nexutの色へ少しずつ遷移させる
-     *
-     * @param next
-     * @param offset
      */
     public void move(final ColorRGBA next, final float offset) {
         r = MathUtil.targetMove(r, offset, next.r);
@@ -156,9 +153,6 @@ public class ColorRGBA {
 
     /**
      * ARGB(Canvas color)をRGBA(GL color）に変換する。
-     *
-     * @param argb
-     * @return
      */
     public static int argb2rgba(final int argb) {
         return (argb << 8) | ((argb >> 24) & 0xff);
@@ -166,9 +160,6 @@ public class ColorRGBA {
 
     /**
      * RGBA(GL color）をARGB(Canvas color)に変換する。
-     *
-     * @param rgba
-     * @return
      */
     public static int rgba2argb(final int rgba) {
         return ((rgba >> 8) & 0x00ffffff) | ((rgba & 0xff) << 24);
@@ -177,12 +168,6 @@ public class ColorRGBA {
     /**
      * RGBA8bitを一つのintにまとめる。
      * 上位ビットからRGBAの順に並ぶ。
-     *
-     * @param r
-     * @param g
-     * @param b
-     * @param a
-     * @return
      */
     public static int toColorRGBA(int r, int g, int b, int a) {
         return ((r & 0xff) << 24) | ((g & 0xff) << 16) | ((b & 0xff) << 8) | (a & 0xff);
@@ -191,12 +176,6 @@ public class ColorRGBA {
     /**
      * RGBAfloatを一つのintにまとめる。
      * 上位ビットからRGBAの順に並ぶ。
-     *
-     * @param r
-     * @param g
-     * @param b
-     * @param a
-     * @return
      */
     public static int toColorRGBA(float r, float g, float b, float a) {
         return toColorRGBA((int) (255.0f * r), (int) (255.0f * g), (int) (255.0f * b), (int) (255.0f * a));
@@ -204,11 +183,6 @@ public class ColorRGBA {
 
     /**
      * RGB565のshort型へ変換する。
-     *
-     * @param r
-     * @param g
-     * @param b
-     * @return
      */
     public static short toColorRGB565(int r, int g, int b) {
         r = (r & 0xff) >> 3;
@@ -219,9 +193,6 @@ public class ColorRGBA {
 
     /**
      * RGBA色からAを取り出す。
-     *
-     * @param colorRGBA
-     * @return
      */
     public static int toColorA(int colorRGBA) {
         return (colorRGBA & 0xff);
@@ -233,9 +204,6 @@ public class ColorRGBA {
 
     /**
      * RGBA色からRを取り出す
-     *
-     * @param colorRGBA
-     * @return
      */
     public static int toColorR(int colorRGBA) {
         return (colorRGBA >> 24) & 0xff;
@@ -247,9 +215,6 @@ public class ColorRGBA {
 
     /**
      * RGBA色からGを取り出す。
-     *
-     * @param colorRGBA
-     * @return
      */
     public static int toColorG(int colorRGBA) {
         return (colorRGBA >> 16) & 0xff;
@@ -261,9 +226,6 @@ public class ColorRGBA {
 
     /**
      * RGBA色からBを取り出す。
-     *
-     * @param colorRGBA
-     * @return
      */
     public static int toColorB(int colorRGBA) {
         return (colorRGBA >> 8) & 0xff;
@@ -322,11 +284,6 @@ public class ColorRGBA {
 
     /**
      * 色をブレンドして返す。
-     *
-     * @param rgba0
-     * @param rgba1
-     * @param blend
-     * @return
      */
     public static int blendColor(int rgba0, int rgba1, float blend) {
         int result = 0;

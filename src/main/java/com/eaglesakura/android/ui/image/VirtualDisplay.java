@@ -1,10 +1,10 @@
 package com.eaglesakura.android.ui.image;
 
-import android.graphics.Rect;
-import android.graphics.RectF;
-
 import com.eaglesakura.android.util.AndroidMathUtil;
 import com.eaglesakura.math.Vector2;
+
+import android.graphics.Rect;
+import android.graphics.RectF;
 
 /**
  * ディスプレイサイズに関わる補正を行う。<BR>
@@ -271,8 +271,6 @@ public class VirtualDisplay {
 
     /**
      * 仮想ディスプレイの外だったらtrueを返す
-     *
-     * @return
      */
     public boolean isOutsideVirtual(int left, int top, int width, int height) {
         final int right = (left + width);
@@ -287,7 +285,6 @@ public class VirtualDisplay {
      *
      * @param realPos ピクセル単位の位置
      * @param result  結果を格納する参照。realPosと同じオブジェクトで問題ない。
-     * @return
      */
     public Vector2 projectionPixelPosition(Vector2 realPos, Vector2 result) {
         result.set((realPos.x - drawingArea.left) / scaling, (realPos.y - drawingArea.top) / scaling);
@@ -299,7 +296,6 @@ public class VirtualDisplay {
      *
      * @param realPos ピクセル単位の位置
      * @param result  結果を格納する参照。realPosと同じオブジェクトで問題ない。
-     * @return
      */
     public Vector2 projectionNormalizePosition(Vector2 realPos, Vector2 result) {
         projectionPixelPosition(realPos, result);
@@ -316,7 +312,6 @@ public class VirtualDisplay {
      *
      * @param realPos ピクセル単位の位置
      * @param result  結果を格納する参照。realPosと同じオブジェクトで問題ない。
-     * @return
      */
     public Vector2 projectionNormalizePosition2D(Vector2 realPos, Vector2 result) {
         projectionPixelPosition(realPos, result);

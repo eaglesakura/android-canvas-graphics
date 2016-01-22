@@ -1,13 +1,13 @@
 package com.eaglesakura.android.graphics;
 
+import com.eaglesakura.math.Vector2;
+import com.eaglesakura.util.StringUtil;
+import com.eaglesakura.util.Util;
+
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-
-import com.eaglesakura.math.Vector2;
-import com.eaglesakura.util.StringUtil;
-import com.eaglesakura.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +47,6 @@ public class FontCalculator {
 
     /**
      * フォントの高さを指定する
-     *
-     * @param pixelHeight
      */
     public void setFontHeight(int pixelHeight) {
         this.fontSize = calcFontSize("Ag", pixelHeight, font);
@@ -61,7 +59,6 @@ public class FontCalculator {
      * @param fooderText 文字列が収まらない場合のフッダーテキスト
      * @param lineWidth  1行の幅
      * @param maxLines   最大行数
-     * @return
      */
     public List<String> calcTextLinesFromRect(String text, String fooderText, int lineWidth, int maxLines) {
         if (StringUtil.isEmpty(text)) {
@@ -112,8 +109,6 @@ public class FontCalculator {
      * @param lineWidth    1行の幅
      * @param maxLines     最大行数
      * @param yMarginPixel 改行ごとのマージンピクセル数
-     * @param canvas
-     * @param paint
      */
     public void drawString(String text, String fooderText, int x, final int y, int lineWidth, int maxLines, int yMarginPixel, Canvas canvas, Paint paint) {
         if (StringUtil.isEmpty(text)) {
@@ -189,7 +184,6 @@ public class FontCalculator {
      *
      * @param text        レンダリング対象の文字列
      * @param heightPixel 計算する高さピクセル数
-     * @return
      */
     private static int calcFontSize(final String text, final int heightPixel, final Typeface font) {
         Vector2 size = new Vector2();
@@ -206,9 +200,6 @@ public class FontCalculator {
 
     /**
      * テキストを描画した場合のエリアを取得する
-     *
-     * @param text
-     * @return
      */
     public Vector2 calcTextArea(final String text) {
         Paint paint = new Paint();
@@ -227,7 +218,6 @@ public class FontCalculator {
      * @param fooderText  もし文字列が指定範囲に収まらない場合に指定するフッダーテキスト
      * @param forceFooder 強制的にフッダを付与する場合はtrue
      * @param widthPixel  幅のピクセル数
-     * @return
      */
     public String calcTextInRect(final String baseText, final String fooderText, boolean forceFooder, int widthPixel) {
         String tempText = forceFooder ? (baseText + fooderText) : baseText;
@@ -250,9 +240,7 @@ public class FontCalculator {
      * <br>
      * height/widthの値は変更せず、オーバーする場合は折り返しを行う
      *
-     * @param baseText
      * @param widthPixel 1行の幅
-     * @return
      */
     public String calcTextInRectNewLine(final String baseText, int widthPixel) {
         String allText = baseText;

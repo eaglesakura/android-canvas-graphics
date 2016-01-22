@@ -1,5 +1,12 @@
 package com.eaglesakura.android.ui.image;
 
+import com.eaglesakura.android.thread.loop.HandlerLoopController;
+import com.eaglesakura.android.thread.ui.UIHandler;
+import com.eaglesakura.math.Vector2;
+import com.eaglesakura.util.LogUtil;
+import com.eaglesakura.util.MathUtil;
+import com.eaglesakura.util.Timer;
+
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Handler;
@@ -7,13 +14,6 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
-
-import com.eaglesakura.android.thread.loop.HandlerLoopController;
-import com.eaglesakura.android.thread.ui.UIHandler;
-import com.eaglesakura.util.MathUtil;
-import com.eaglesakura.math.Vector2;
-import com.eaglesakura.util.Timer;
-import com.eaglesakura.util.LogUtil;
 
 /**
  * 一枚絵を基本として、下記の機能を扱うベースを対応する。
@@ -90,8 +90,6 @@ public class ImageGestureController implements View.OnTouchListener {
 
     /**
      * エフェクト実行が必要であればtrue
-     *
-     * @return
      */
     private boolean hasEffectUpdateRequest() {
         if (imageMoveVector.length() > 0.0001) {
@@ -165,10 +163,6 @@ public class ImageGestureController implements View.OnTouchListener {
 
     /**
      * 注目点を指定する
-     *
-     * @param newCenterRenderPosX
-     * @param newCenterRenderPosY
-     * @param frame
      */
     public void setLookAtRenderPos(int newCenterRenderPosX, int newCenterRenderPosY, int frame) {
         Rect area = imageCorrector.getRenderArea(new Rect());
@@ -190,8 +184,6 @@ public class ImageGestureController implements View.OnTouchListener {
      * タッチを放置している時間を取得する。
      * <br>
      * タッチ中の場合は負の値を返却する
-     *
-     * @return
      */
     public long getFreeTimeMs() {
         if (touchNow) {
@@ -316,8 +308,6 @@ public class ImageGestureController implements View.OnTouchListener {
         /**
          * 画像をクリックした
          *
-         * @param gesture
-         * @param event
          * @return 反応したらtrue
          */
         boolean onClick(ImageGestureController gesture, MotionEvent event);
@@ -325,8 +315,6 @@ public class ImageGestureController implements View.OnTouchListener {
         /**
          * 画像をダブルクリックした
          *
-         * @param gesture
-         * @param event
          * @return 反応したらtrue
          */
         boolean onDoubleClick(ImageGestureController gesture, MotionEvent event);
@@ -334,8 +322,6 @@ public class ImageGestureController implements View.OnTouchListener {
         /**
          * スケーリングを変更した
          *
-         * @param gesture
-         * @param center
          * @return 反応したらtrue
          */
         boolean onScaled(ImageGestureController gesture, Vector2 center);
