@@ -45,10 +45,22 @@ dependencies {
         compile project(':eglibrary:simple-utils')
         compile project(':eglibrary:android-simple-utils')
         compile project(':eglibrary:android-thread')
+
+        /**
+         * UnitTest
+         */
+        androidTestCompile project(":eglibrary:android-devicetest-support")
+        testCompile project(":eglibrary:android-unittest-support")
     } else {
         compile 'com.eaglesakura:simple-utils:1.+'
         compile 'com.eaglesakura:android-simple-utils:1.+'
         compile 'com.eaglesakura:android-thread:1.+'
+
+        /**
+         * UnitTest
+         */
+        androidTestCompile 'com.eaglesakura:android-devicetest-support:1.+'
+        testCompile 'com.eaglesakura:android-unittest-support:1.+'
     }
 }
 
