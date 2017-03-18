@@ -44,7 +44,7 @@ dependencies {
     if (EGLIBRARY_COMPILE_LOCAL) {
         compile project(':eglibrary:simple-utils')
         compile project(':eglibrary:android-simple-utils')
-//        compile project(':eglibrary:android-thread')
+        compile project(':eglibrary:android-thread')
 
         /**
          * UnitTest
@@ -54,7 +54,7 @@ dependencies {
     } else {
         compile "com.eaglesakura:simple-utils:1.1.556"
         compile "com.eaglesakura:android-simple-utils:1.0.543"
-//        compile "com.eaglesakura:android-thread:1.1.459"
+        compile "com.eaglesakura:android-thread:1.1.459"
 
         /**
          * UnitTest
