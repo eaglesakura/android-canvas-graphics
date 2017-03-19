@@ -1,6 +1,7 @@
 package com.eaglesakura.android.graphics;
 
 import com.eaglesakura.math.Vector2;
+import com.eaglesakura.util.CollectionUtil;
 import com.eaglesakura.util.StringUtil;
 import com.eaglesakura.util.Util;
 
@@ -65,7 +66,7 @@ public class FontCalculator {
             return new ArrayList<>();
         }
 
-        List<String> lines = Util.convert(text.split("\n"));
+        List<String> lines = CollectionUtil.asList(text.split("\n"));
 
         // 行ごとのチェックを行う
         for (int lineNumber = 0; lineNumber < lines.size(); ++lineNumber) {
